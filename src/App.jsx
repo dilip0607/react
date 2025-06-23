@@ -2,7 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import Login from './login';
+import Dashboard from './Dashboard';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +14,11 @@ const showalter = () => {
   }
   return (
     <>
+     <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  
      <div className="div">
         <p>instagram</p>
         <input type="text" placeholder='phone number,username,or email' />
