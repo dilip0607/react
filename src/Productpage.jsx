@@ -1,41 +1,84 @@
 // ProductPage.js
-import React, { useEffect, useState } from 'react';
+// src/components/ReportForm.js
+
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './index.css';
+import './App.css'
+import './login.css';
+import './Productpage.css';
 
-function ProductPage() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const ReportForm = () => {
+  const [image, setImage] = useState(null);
+  const [coords, setCoords] = useState({ lat: null, lng: null });
+  const [description, setDescription] = useState('');
 
+  // Grab user's current location
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products')
-      .then((res) => {
-        setProducts(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+      }, err => {
+        console.error('Geolocation error:', err);
+      }, { enableHighAccuracy: true });
+    }
   }, []);
 
+  const onFileChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!image) return alert('Please select an image.');
+
+    const formData = new FormData();
+    formData.append('image', image);
+    formData.append('lat', coords.lat);
+    formData.append('lng', coords.lng);
+    formData.append('description', description);
+
+    try {
+      await axios.post('http://localhost:5000/api/reports', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      alert('Report submitted!');
+      setImage(null);
+      setDescription('');
+    } catch (err) {
+      console.error(err);
+      alert('Submission failed.');
+    }
+  };
+
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Product Page</h2>
-      {loading && <p>Loading products...</p>}
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-        {products.map(product => (
-          <div key={product.id} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '10px', width: '200px' }}>
-            <img src={product.image} alt={product.title} style={{ width: '100px', height: '100px', objectFit: 'contain' }} />
-            <h4>{product.title}</h4>
-            <p><strong>₹ {product.price}</strong></p>
-          </div>
-        ))}
+    <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <h2>Submit a Report</h2>
+      <div>
+        <label>
+          Image:
+          <input type="file" accept="image/*" onChange={onFileChange} />
+        </label>
       </div>
-    </div>
+      <div>
+        <label>
+          Description:
+          <textarea
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+            placeholder="Describe the issue..."
+          />
+        </label>
+      </div>
+      <div>
+        {coords.lat && coords.lng
+          ? <p>Location: {coords.lat.toFixed(4)}, {coords.lng.toFixed(4)}</p>
+          : <p>Determining location...</p>
+        }
+      </div>
+      <button type="submit">Send Report</button>
+    </form>
   );
-}
+};
 
-export default ProductPage;
+export default ReportForm;

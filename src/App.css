@@ -3,17 +3,23 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #2c3e50;
+  background-color: #f8f9fa;
 }
 
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
-  transition: filter 300ms;
+  transition: all 300ms ease;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.05);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -35,27 +41,215 @@
 
 .card {
   padding: 2em;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1em 0;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
 }
 
 .read-the-docs {
-  color: #888;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 2em;
 }
+
 .hr-with-text {
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 1.5em 0;
+  margin: 2em 0;
 }
+
 .hr-with-text hr {
   flex: 1;
   border: none;
-  border-top: 1px solid #1f1b1b;
-  margin: 0 10px;
+  border-top: 1px solid #e0e0e0;
+  margin: 0 15px;
 }
+
 .hr-with-text span {
-  color: #151414;
-  font-weight: bold;
-  padding: 0 10px;
-  white-space: nowrap
-;
+  color: #444;
+  font-weight: 600;
+  padding: 0 15px;
+  white-space: nowrap;
+  background: #f8f9fa;
+}
+
+.hero-section {
+  width: 100%;
+  max-width: 700px;
+  margin: 2.5rem auto 1.5rem auto;
+  text-align: center;
+}
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+.hero-section p {
+  font-size: 1.25rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 1em 2.2em;
+  border-radius: 2em;
+  font-size: 1.1em;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+.cta-btn:hover {
+  background: linear-gradient(90deg, #0ea5e9 0%, #4f46e5 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.how-it-works {
+  background: #f8fafc;
+  padding: 2.5em 0 2em 0;
+  margin: 2.5em 0 0 0;
+  text-align: center;
+}
+.how-it-works h2 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 1.2em;
+}
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 2.5em;
+  flex-wrap: wrap;
+}
+.step {
+  background: #fff;
+  border-radius: 1em;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.07);
+  padding: 1.5em 1.2em;
+  min-width: 180px;
+  max-width: 220px;
+  margin: 0.5em 0;
+}
+.step h3 {
+  color: #38bdf8;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+.step p {
+  color: #4a5568;
+  font-size: 1em;
+}
+
+.testimonials {
+  background: #f0f4ff;
+  padding: 2.5em 0 2em 0;
+  margin: 2.5em 0 0 0;
+  text-align: center;
+}
+.testimonials h2 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 1.2em;
+}
+.testimonial-list {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+.testimonial {
+  background: #fff;
+  border-radius: 1em;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.07);
+  padding: 1.5em 1.2em;
+  min-width: 180px;
+  max-width: 220px;
+  margin: 0.5em 0;
+  font-style: italic;
+}
+.testimonial span {
+  display: block;
+  margin-top: 0.7em;
+  color: #6366f1;
+  font-weight: 600;
+  font-size: 0.98em;
+}
+
+.footer {
+  background: #e0e7ff;
+  color: #2d3748;
+  text-align: center;
+  padding: 1.2em 0 1em 0;
+  margin-top: 2em;
+  font-size: 1em;
+  border-top: 1px solid #cbd5e1;
+}
+
+.location-row {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  margin-bottom: 1.1em;
+}
+.location-input {
+  flex: 1;
+  padding: 0.8em 1em;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 0.7em;
+  font-size: 1.08em;
+  background: #f1f5f9;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.location-input:focus {
+  border: 1.5px solid #38bdf8;
+  outline: none;
+  box-shadow: 0 0 0 2px #38bdf833;
+}
+.location-btn {
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s, transform 0.1s;
+}
+.google-maps-btn {
+  background: #38bdf8;
+  color: #fff;
+  margin-left: 0.2em;
+}
+.google-maps-btn:hover {
+  background: #0ea5e9;
+}
+.use-location-btn {
+  background: #6366f1;
+  color: #fff;
+  margin-left: 0.2em;
+}
+.use-location-btn:hover {
+  background: #4f46e5;
+}
+
+@media (max-width: 700px) {
+  .hero-section {
+    max-width: 98vw;
+    padding: 0 1em;
+  }
+  .steps, .testimonial-list {
+    flex-direction: column;
+    gap: 1.2em;
+    align-items: center;
+  }
 }

@@ -1,0 +1,143 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f0f4ff 0%, #e0f7fa 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin: 0;
+}
+
+.hero-section {
+  width: 100%;
+  max-width: 700px;
+  margin: 2.5rem auto 1.5rem auto;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+.report-form-container {
+  max-width: 480px;
+  margin: 0 auto 2.5rem auto;
+  padding: 2.5em 2em 2em 2em;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.report-form-container h2 {
+  margin-bottom: 1.2em;
+  color: #1e293b;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.report-form-container label {
+  display: block;
+  margin-bottom: 0.4em;
+  color: #334155;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+.report-form-container input[type="file"],
+.report-form-container input[type="text"],
+.report-form-container input[type="email"] {
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 0.8em;
+  font-size: 1.08em;
+  background: #f8fafc;
+  margin-bottom: 1.1em;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.report-form-container input[type="file"] {
+  padding: 0.5em 0.2em;
+  background: #f1f5f9;
+  border: none;
+  margin-bottom: 1.2em;
+}
+
+.report-form-container input:focus,
+.report-form-container textarea:focus {
+  border: 1.5px solid #38bdf8;
+  outline: none;
+  box-shadow: 0 0 0 2px #38bdf833;
+}
+
+.report-form-container textarea {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 0.5em;
+  margin-bottom: 1.2em;
+  padding: 0.9em 1em;
+  border-radius: 0.8em;
+  border: 1.5px solid #cbd5e1;
+  resize: vertical;
+  font-size: 1.08em;
+  background: #f8fafc;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.report-form-container button[type="submit"] {
+  width: 100%;
+  padding: 1em 0;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.8em;
+  font-size: 1.18em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 0.5em;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(100, 108, 255, 0.08);
+}
+
+.report-form-container button[type="submit"]:hover {
+  background: linear-gradient(90deg, #0ea5e9 0%, #4f46e5 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.report-form-container p {
+  margin: 0.7em 0 0 0;
+  color: #64748b;
+  font-size: 1em;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .hero-section {
+    max-width: 98vw;
+    padding: 0 1em;
+  }
+  .report-form-container {
+    max-width: 98vw;
+    padding: 1.2em 0.5em 1em 0.5em;
+    border-radius: 1em;
+  }
+  .report-form-container h2 {
+    font-size: 1.2rem;
+  }
+}
